@@ -15,10 +15,8 @@ let isNumber = function(n) {
     return !isNaN(parseFloat(n));
 };
 
-let guess = Math.ceil(Math.random() * (100 - 1) + 1);
-
 function guessNumber() {
-    console.log(guess);
+    let guess = 60;
     let attemp = prompt('Угадай число от 1 до 100');
     if (attemp == guess) {
         alert('Поздравляю, Вы угадали!!!');
