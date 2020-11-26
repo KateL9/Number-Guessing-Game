@@ -10,13 +10,13 @@
 —  если пользовательское число равно загаданному, то игра заканчивается и выводит сообщение  "Поздравляю, Вы угадали!!!".
 Программа должны быть выполнена с помощью рекурсии, без единого цикла.
 Загаданное число должно храниться «в замыкании»*/
-
 let isNumber = function(n) {
     return !isNaN(parseFloat(n));
 };
+let randomNum = Math.ceil(Math.random() * (100 - 1) + 1);
 
-function guessNumber() {
-    let guess = 60;
+function guessNumber(guess) {
+    console.log(guess);
     let attemp = prompt('Угадай число от 1 до 100');
     if (attemp == guess) {
         alert('Поздравляю, Вы угадали!!!');
@@ -24,12 +24,13 @@ function guessNumber() {
         alert('Игра окончена');
     } else if (!isNumber(attemp)) {
         alert("Введите число");
-        guessNumber();
+        guessNumber(guess);
     } else if (attemp < guess) {
-        alert("Загаданное число меньше.");
-        guessNumber();
-    } else if (attemp > guess) {
         alert("Загаданное число больше.");
-        guessNumber();
+        guessNumber(guess);
+    } else if (attemp > guess) {
+        alert("Загаданное число меньше.");
+        guessNumber(guess);
     }
-}
+};
+guessNumber(randomNum);
